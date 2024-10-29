@@ -7,7 +7,7 @@ from src import settings
 
 def trim_audio_to_fixed_length(file_path, duration_ms):
     filename = file_path.split('/')[-1]
-    output_path = settings.BASE_PATH + 'tmp/' + filename
+    output_path = settings.TMP_PATH + filename
     audio = AudioSegment.from_wav(file_path)
 
     if len(audio) > duration_ms:
@@ -21,8 +21,8 @@ def trim_audio_to_fixed_length(file_path, duration_ms):
     return output_path
 
 
-def extract_mfcc(file_path, n_mfcc=13):
-    path = trim_audio_to_fixed_length(file_path, duration_ms=20000)
+def extract_mfcc(file_path, n_mfcc=12):
+    path = trim_audio_to_fixed_length(file_path, duration_ms=30000)
     y, sr = librosa.load(path, sr=None)
     mfcc = feature.mfcc(y=y, sr=sr, n_mfcc=n_mfcc)
     return mfcc.T

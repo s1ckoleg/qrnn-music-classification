@@ -1,4 +1,7 @@
-BASE_PATH = '/Users/oleg/Polytech/ML/lab2/qrnn-music-classification/dataset/'
+BASE_PATH = '/Users/oleg/Polytech/ML/lab2/qrnn-music-classification/dataset/train/'
+BASE_PATH_EVAL = '/Users/oleg/Polytech/ML/lab2/qrnn-music-classification/dataset/eval/'
+TMP_PATH = '/Users/oleg/Polytech/ML/lab2/qrnn-music-classification/dataset/tmp/'
+MODEL_PATH = '/Users/oleg/Polytech/ML/lab2/qrnn-music-classification/model/model_checkpoint.pth'
 GENRES = ['classic', 'hip-hop', 'rock']
 GENRES_MAP = {
     'classic': 0,

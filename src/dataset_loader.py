@@ -27,11 +27,17 @@ def collate_fn(batch):
     return padded_data, labels
 
 
-def load_data():
+def load_data(stage):
+    if stage == 'train':
+        base_path = settings.BASE_PATH
+    elif stage == 'eval':
+        base_path = settings.BASE_PATH_EVAL
+    else:
+        raise ValueError('Should be train or eval')
     data = []
     labels = []
     for genre in settings.GENRES:
-        path = settings.BASE_PATH + genre
+        path = base_path + genre
         for filename in os.listdir(path):
             print(f'Load {genre}: {filename}')
             data.append(extract_mfcc(path + '/' + filename))
