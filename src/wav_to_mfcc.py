@@ -21,8 +21,14 @@ def trim_audio_to_fixed_length(file_path, duration_ms):
     return output_path
 
 
-def extract_mfcc(file_path, n_mfcc=12):
-    path = trim_audio_to_fixed_length(file_path, duration_ms=30000)
+def extract_mfcc(file_path, n_mfcc=64):
+    # Мел-кепстральные коэффициенты
+    duration = settings.TRAIN_DURATION
+    if 'eval' in file_path:
+        duration = settings.EVAL_DURATION
+    if 'train' in file_path:
+        duration = settings.TRAIN_DURATION
+    path = trim_audio_to_fixed_length(file_path, duration_ms=duration)
     y, sr = librosa.load(path, sr=None)
     mfcc = feature.mfcc(y=y, sr=sr, n_mfcc=n_mfcc)
     return mfcc.T

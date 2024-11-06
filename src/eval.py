@@ -3,7 +3,7 @@ from src import settings
 from src.dataset_loader import load_data
 
 
-def eval(model):
+def test(model):
     test_loader = load_data('eval')
     model.load_state_dict(torch.load(settings.MODEL_PATH))
 

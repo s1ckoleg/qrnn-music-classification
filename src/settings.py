@@ -8,3 +8,5 @@ GENRES_MAP = {
     'hip-hop': 1,
     'rock': 2
 }
+TRAIN_DURATION = 30000
+EVAL_DURATION = 10000

@@ -17,9 +17,9 @@ def train(model, criterion, optimizer):
             optimizer.step()
             total_loss += loss.item()
 
-        print(f'Epoch {epoch + 1}/{num_epochs}, Loss: {total_loss / len(data_loader)}')
+        # print(f'Epoch {epoch + 1}/{num_epochs}, Loss: {total_loss / len(data_loader)}')
 
     torch.save(model.state_dict(), settings.MODEL_PATH)
-    print(f"Model saved to {settings.MODEL_PATH}")
+    # print(f"Model saved to {settings.MODEL_PATH}")
 
 
